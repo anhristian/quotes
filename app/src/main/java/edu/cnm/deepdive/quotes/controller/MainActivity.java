@@ -1,6 +1,8 @@
 package edu.cnm.deepdive.quotes.controller;
 
 import android.os.Bundle;
+import android.widget.Toast;
+import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -8,6 +10,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import edu.cnm.deepdive.quotes.R;
+import edu.cnm.deepdive.quotes.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     NavigationUI.setupWithNavController(navView, navController);
+    MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+    getLifecycle().addObserver(viewModel);
+    viewModel.getThrowable().observe(this, (throwable) -> {
+      if (throwable != null) {
+        Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_LONG).show();
+      }
+    });
   }
 
 }
