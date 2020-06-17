@@ -56,7 +56,8 @@ public abstract class QuotesDatabase extends RoomDatabase {
 
     private static final QuotesDatabase INSTANCE =
         Room.databaseBuilder(context, QuotesDatabase.class,DB_NAME)
-         .build();
+            .addCallback(new QuotesCallBack())
+            .build();
 
   }
 
