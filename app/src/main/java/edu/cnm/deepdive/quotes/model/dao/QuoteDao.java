@@ -28,4 +28,7 @@ public interface QuoteDao {
 
   @Query("SELECT * FROM Quote ORDER BY text")
   Single<List<Quote>> selectAll();
+
+
+
 }
