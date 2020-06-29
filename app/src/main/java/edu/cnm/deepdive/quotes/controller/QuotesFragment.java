@@ -23,9 +23,10 @@ public class QuotesFragment extends Fragment {
     super.onViewCreated(view, savedInstanceState);
     //noinspection ConstantConditions
     mainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
-    mainViewModel.getQuotes().observe(getViewLifecycleOwner(),
-        (quotes) -> quoteList.setAdapter(new QuoteAdapter(getContext(), quotes)));
-  }
+    mainViewModel.getQuotes().observe(getViewLifecycleOwner(), (quotes) -> {
+      quoteList.setAdapter(new QuoteAdapter(getContext(), quotes));
+  });
+}
 
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {

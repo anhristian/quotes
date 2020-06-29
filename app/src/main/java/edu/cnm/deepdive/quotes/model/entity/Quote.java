@@ -27,6 +27,7 @@ public class Quote {
   @ColumnInfo(collate = ColumnInfo.NOCASE)
   private String text = "";
 
+
   public long getId() {
     return id;
   }
@@ -34,6 +35,7 @@ public class Quote {
   public void setId(long id) {
     this.id = id;
   }
+
 
   public Long getSourceId() {
     return sourceId;
