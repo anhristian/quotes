@@ -20,10 +20,10 @@ public interface SourceDao {
   Single<Long> insert(Source source);
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
-  Single<List<Long>>insert(Source... sources);
+  Single<List<Long>> insert(Source... sources);
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
-  Single<List<Long>>insert(Collection<Source> sources);
+  Single<List<Long>> insert(Collection<Source> sources);
 
   @Update
   Single<Integer> update(Source... sources);
@@ -32,11 +32,11 @@ public interface SourceDao {
   Single<Integer> delete(Source... sources);
 
   @Query("SELECT * FROM Source ORDER BY name")
-  Single<List<Source>> selectAll();
+  LiveData<List<Source>> selectAll();
 
   @Transaction
   @Query("SELECT * FROM Source ORDER BY name")
-  Single<List<SourceWithQuotes>> selectAllWithQuotes();
+  LiveData<List<SourceWithQuotes>> selectAllWithQuotes();
 
   @Transaction
   @Query("SELECT * FROM Source WHERE source_id = :sourceId")
