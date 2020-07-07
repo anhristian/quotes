@@ -12,6 +12,7 @@ import edu.cnm.deepdive.quotes.model.pojo.QuoteWithSource;
 import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
+import androidx.lifecycle.LiveData;
 
 @Dao
 public interface QuoteDao {
