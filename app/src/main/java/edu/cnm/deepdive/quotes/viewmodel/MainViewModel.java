@@ -35,7 +35,6 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
 
   public LiveData<List<QuoteWithSource>> getQuotes() {
     return quoteRepository.getAll();
-    //return quoteRepository.getAll();
   }
 
   public LiveData<List<Source>> getSources() {
